@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Employee Dashboard</title>
+  <link rel="stylesheet" href="test1.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  <!-- Menu Button -->
+  <div class="menu-btn magnetic-button" id="menuBtn">
+    <div class="menu-icon">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+
+  <!-- Side Navigation -->
+  <nav class="side-nav" id="sideNav">
+    <ul class="nav-links">
+      <li><a href="#profile" class="magnetic-button"><i class="fas fa-user"></i><span>Profile</span></a></li>
+      <li><a href="#tasks" class="magnetic-button"><i class="fas fa-tasks"></i><span>Tasks</span></a></li>
+      <li><a href="#attendance" class="magnetic-button"><i class="fas fa-calendar-check"></i><span>Attendance</span></a></li>
+      <li><a href="#leave" class="magnetic-button"><i class="fas fa-plane-departure"></i><span>Leave Requests</span></a></li>
+      <li><a href="#calendar" class="magnetic-button"><i class="fas fa-calendar-alt"></i><span>Calendar</span></a></li>
+      <li><a href="#notifications" class="magnetic-button"><i class="fas fa-bell"></i><span>Notifications</span></a></li>
+    </ul>
+
+    <!-- Go Back -->
+    <div class="go-back magnetic-button" id="goBack">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+      </svg>
+    </div>
+  </nav>
+
+  <!-- Full Page Sections -->
+  <main class="main-content">
+    <section id="profile" class="content-section">
+      <h1>Profile</h1>
+      <p>Your profile content goes here.</p>
+    </section>
+
+    <section id="tasks" class="content-section">
+      <h1>Tasks</h1>
+      <p>Your tasks content goes here.</p>
+    </section>
+
+    <section id="attendance" class="content-section">
+      <h1>Attendance</h1>
+      <p>Your attendance content goes here.</p>
+    </section>
+
+    <section id="leave" class="content-section">
+      <h1>Leave Requests</h1>
+      <p>Your leave request content goes here.</p>
+    </section>
+
+    <section id="calendar" class="content-section">
+      <h1>Calendar</h1>
+      <p>Your calendar content goes here.</p>
+    </section>
+
+    <section id="notifications" class="content-section">
+      <h1>Notifications</h1>
+      <p>Your notifications content goes here.</p>
+    </section>
+  </main>
+
+  <!-- Script -->
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const sideNav = document.getElementById('sideNav');
+    const goBack = document.getElementById('goBack');
+
+    menuBtn.addEventListener('click', () => {
+      sideNav.classList.add('show');
+      menuBtn.style.display = 'none';
+    });
+
+    goBack.addEventListener('click', () => {
+      sideNav.classList.remove('show');
+      menuBtn.style.display = 'flex';
+    });
+
+    // Magnetic hover effect
+    // Magnetic hover effect
+document.querySelectorAll('.magnetic-button').forEach(btn => {
+  const parent = btn.closest('div');
+  if (!parent) return;
+  parent.addEventListener('mousemove', e => {
+    const rect = parent.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+    btn.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px) scale(1.05)`;
+  });
+  parent.addEventListener('mouseleave', () => {
+    btn.style.transform = `translate(0, 0) scale(1)`;
+  });
+});
+
+  </script>
+</body>
+</html>

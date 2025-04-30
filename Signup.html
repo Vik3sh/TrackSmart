@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SignUp</title>
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="Signup.css">
+</head>
+<body>
+  <div class="signup">
+    <form class="signup-box" action="Signup.php" method="POST">
+      <h2>SignUp</h2>
+      <p style="text-align:left;">Enter your details:</p>
+
+      <div class="input-box">
+        <input type="text" name="username" id="name" placeholder="Name" required />
+        <i class="bx bx-user"></i>
+      </div>
+
+      <div class="input-box">
+        <input type="email" name="email" id="email" placeholder="Email" required />
+        <i class="bx bx-envelope"></i>
+      </div>
+
+      <div class="input-box">
+        <input type="password" name="password" id="pass" placeholder="Password" required />
+        <i class="bx bxs-lock-alt"></i>
+      </div>
+
+      <div class="input-box">
+        <input type="password" name="rpassword" id="rpass" placeholder="ReEnter Password" required />
+        <i class="bx bxs-lock-alt"></i>
+      </div>
+
+      <div class="button-wrapper">
+        <button type="submit" class="magnetic-button">Sign Up</button>
+      </div>
+
+      <p style="font-size: 20px;">Already have an account? <a href="Login.php" class="login-btn">Login Here</a></p>
+    </form>
+  </div>
+
+  <script>
+    const button = document.querySelector('.magnetic-button');
+    const wrapper = document.querySelector('.button-wrapper');
+
+    wrapper.addEventListener('mousemove', (e) => {
+      const rect = wrapper.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      button.style.transform = `translate(${x * 0.15}px, ${y * 0.15}px) scale(1.05)`;
+    });
+
+    wrapper.addEventListener('mouseleave', () => {
+      button.style.transform = `translate(0, 0) scale(1)`;
+    });
+
+    const signupBox = document.querySelector('.signup-box');
+    const signupContainer = document.querySelector('.signup');
+
+    signupContainer.addEventListener('mousemove', (e) => {
+      const rect = signupContainer.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      signupBox.style.transform = `translate(${x * 0.03}px, ${y * 0.03}px)`;
+    });
+
+    signupContainer.addEventListener('mouseleave', () => {
+      signupBox.style.transform = `translate(0, 0)`;
+    });
+  </script>
+</body>
+</html>
