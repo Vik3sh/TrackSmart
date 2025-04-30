@@ -56,4 +56,4 @@
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/your-username/tracksmart.git
+   git clone https://github.com/Vik3sh/tracksmart.git
