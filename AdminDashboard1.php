@@ -239,7 +239,7 @@ document.addEventListener('DOMContentLoaded', () => {
       mainContent.classList.remove('expanded');
     } else {
       hamburger.style.display = 'none';
-      sidebar.classList.remove('active'); // Reset to default state
+      sidebar.classList.remove('active'); 
       mainContent.classList.remove('expanded');
     }
   }
@@ -254,13 +254,13 @@ document.addEventListener('DOMContentLoaded', () => {
     hamburger.addEventListener('click', function() {
       sidebar.classList.toggle('active');
       mainContent.classList.toggle('expanded');
-      console.log('Hamburger clicked, sidebar toggled'); // Debug log
+      console.log('Hamburger clicked, sidebar toggled'); 
     });
   }
   document.addEventListener('click', function(event) {
-    // Only apply this behavior on mobile
+    
     if (window.innerWidth <= 768) {
-      // Check if sidebar is active and the click is outside the sidebar and hamburger
+     
       if (
         sidebar.classList.contains('active') && 
         !sidebar.contains(event.target) && 
@@ -280,7 +280,7 @@ document.addEventListener('DOMContentLoaded', () => {
       .then(response => response.json())
       .then(data => {
         if (data.settings) {
-          // Set default check-in time
+          
           if (data.settings.default_check_in_time) {
             document.getElementById('defaultCheckInTime').value = 
               data.settings.default_check_in_time.value.substring(0, 5); // Format HH:MM
